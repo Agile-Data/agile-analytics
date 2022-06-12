@@ -23,6 +23,8 @@ module.exports = defineConfig({
         proxy: {
             '^/': {
                 target: 'http://localhost:8000/',
+                hot: false,
+                ws: false,
                 liveReload: false,
                 changeOrigin: true
             }
