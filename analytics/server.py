@@ -3,10 +3,7 @@ import logging
 from fastapi import FastAPI
 from starlette import status
 
-from .models.account import Account
-from .models.base_model import initialize_database
-
-COLLECTIONS_NAME = [Account.__NAME__]
+from .models import initialize_database
 
 
 class StaticFileAccessLogFilter(logging.Filter):
@@ -22,6 +19,6 @@ class StaticFileAccessLogFilter(logging.Filter):
 logging.getLogger("uvicorn.access").addFilter(StaticFileAccessLogFilter())
 logging.basicConfig(filename='logging.conf')
 
-app = FastAPI()
+initialize_database()
 
-initialize_database(COLLECTIONS_NAME)
+app = FastAPI()
