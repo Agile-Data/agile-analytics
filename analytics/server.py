@@ -3,6 +3,7 @@ import logging
 from fastapi import FastAPI
 from starlette import status
 
+from .controllers import initialize_static_file_route, initialize_gzip
 from .models import initialize_database
 
 
@@ -19,6 +20,8 @@ class StaticFileAccessLogFilter(logging.Filter):
 logging.getLogger("uvicorn.access").addFilter(StaticFileAccessLogFilter())
 logging.basicConfig(filename='logging.conf')
 
-initialize_database()
-
 app = FastAPI()
+
+initialize_database()
+initialize_static_file_route(app)
+initialize_gzip(app)

@@ -10,7 +10,11 @@ from . import account, session
 from .account import Account
 from .session import Session
 
-__all__ = ['Account', 'Session']
+__all__ = [
+    'initialize_database',
+    'Account',
+    'Session'
+]
 
 DATABASE_URL = os.getenv("DATABASE_URL", "http://127.0.0.1:8529")
 DATABASE_USERNAME = os.getenv("DATABASE_USERNAME", "root")
