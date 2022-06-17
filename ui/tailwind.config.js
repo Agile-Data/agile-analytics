@@ -2,7 +2,7 @@ module.exports = {
     purge: {
         content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
         options: {
-            safelist: ['font-sans', 'bg-gray-200'],
+            safelist: ['font-sans', 'bg-gray-200', 'antialiased'],
         }
     },
     theme: {

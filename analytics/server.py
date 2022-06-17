@@ -5,6 +5,7 @@ from starlette import status
 
 from .controllers import initialize_static_file_route, initialize_gzip, initialize_controllers
 from .models import initialize_database
+from .models.account import initialize_root
 
 
 class StaticFileAccessLogFilter(logging.Filter):
@@ -23,6 +24,7 @@ logging.basicConfig(filename='logging.conf')
 app = FastAPI()
 
 initialize_database()
+initialize_root()
 initialize_static_file_route(app)
 initialize_gzip(app)
 initialize_controllers(app)

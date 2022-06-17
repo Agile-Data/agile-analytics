@@ -5,13 +5,12 @@ from typing import List
 from pyArango.connection import Connection
 from pyArango.database import Database
 
-from . import account, session
-
 from .account import Account
 from .session import Session
 
 __all__ = [
     'initialize_database',
+    'create_connection',
     'Account',
     'Session'
 ]
@@ -21,7 +20,7 @@ DATABASE_USERNAME = os.getenv("DATABASE_USERNAME", "root")
 DATABASE_PASSWORD = os.getenv("DATABASE_PASSWORD", "test123")
 DATABASE_NAME = os.getenv("DATABASE_NAME", "AGIAnalysis")
 
-COLLECTIONS_NAME = [account.__NAME__, session.__NAME__]
+COLLECTIONS_NAME = [Account, Session]
 
 
 # noinspection SqlNoDataSourceInspection
@@ -39,7 +38,7 @@ def initialize_database():
     connection.disconnectSession()
 
 
-class database_connection:
+class create_connection:
 
     def __enter__(self):
         self.connection = Connection(arangoURL=DATABASE_URL, username=DATABASE_USERNAME, password=DATABASE_PASSWORD)
@@ -50,10 +49,11 @@ class database_connection:
             self.connection.disconnectSession()
 
 
+# noinspection PyUnresolvedReferences
 def _initialize_collections(connection: Connection, collections_name: List[str]):
     database = Database(connection, DATABASE_NAME)
 
     for collection_name in collections_name:
-        if not database.hasCollection(collection_name):
-            database.createCollection(name=collection_name)
-            logging.info(f"Create collection: {collection_name}")
+        if not database.hasCollection(collection_name.__tablename__):
+            database.createCollection(name=collection_name.__tablename__)
+            logging.info(f"Create collection: {collection_name.__tablename__}")
