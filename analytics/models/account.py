@@ -1,6 +1,5 @@
 import hashlib
 import os
-from datetime import datetime
 from typing import Optional
 
 from .base_model import ArrangoDBModel
@@ -18,9 +17,16 @@ class Account(ArrangoDBModel):
     role: str
     email: Optional[str] = None
 
+    @classmethod
+    def reset_password(cls, login: str, old_password: str, new_password: str):
+        pass
+
+    def authenticate(self, login: str, password: str) -> bool:
+        return self.__class__.find_first({"login": login, "password_digest": encode_password(password)}) is not None
+
     def __before_save__(self):
         self.password_digest = encode_password(self.password)
-        self.password = None
+        self.password = "Encrypted"
 
 
 def encode_password(password: str) -> str:

@@ -1,7 +1,5 @@
 from fastapi import FastAPI
 
-from .sessions_controller import initialize_sessions
-
 
 def initialize_static_file_route(app: FastAPI, name="statics"):
     from starlette.staticfiles import StaticFiles
@@ -16,5 +14,7 @@ def initialize_gzip(app: FastAPI, minimum_size=1000):
 
 
 def initialize_controllers(app: FastAPI):
+    from .sessions_controller import initialize_sessions
+
     initialize_sessions(app)
 

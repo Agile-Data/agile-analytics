@@ -42,10 +42,10 @@ class ArrangoDBModel(BaseModel):
             if len(doc) == 0:
                 return None
             else:
-                return doc[0]
+                return cls.parse_obj(doc[0].getStore())
 
     @classmethod
     def find_all(cls, predicate: Dict):
         collection_name = getattr(cls, TABLE_NAME)
         with models.create_connection() as connection:
-            return connection[models.DATABASE_NAME][collection_name].fetchExample(predicate)
+            return [cls.parse_obj(d.getStore()) for d in connection[models.DATABASE_NAME][collection_name].fetchExample(predicate)]
