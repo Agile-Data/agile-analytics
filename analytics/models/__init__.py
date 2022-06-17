@@ -1,5 +1,6 @@
 import logging
 import os
+import sys
 from typing import List
 
 from pyArango.connection import Connection
@@ -22,16 +23,18 @@ DATABASE_NAME = os.getenv("DATABASE_NAME", "AGIAnalysis")
 
 COLLECTIONS_NAME = [Account, Session]
 
+logger = logging.getLogger(sys.modules[__name__].__name__)
+
 
 # noinspection SqlNoDataSourceInspection
 def initialize_database():
     connection = Connection(arangoURL=DATABASE_URL, username=DATABASE_USERNAME, password=DATABASE_PASSWORD)
     database_version = connection.getVersion()
-    logging.info(f"ArangoDB version: {database_version}")
+    logger.info(f"ArangoDB version: {database_version}")
 
     if not connection.hasDatabase(DATABASE_NAME):
         connection.createDatabase(DATABASE_NAME)
-        logging.info(f"Create database {DATABASE_NAME} in ArangoDB")
+        logger.info(f"Create database {DATABASE_NAME} in ArangoDB")
 
     _initialize_collections(connection, COLLECTIONS_NAME)
 
@@ -56,4 +59,4 @@ def _initialize_collections(connection: Connection, collections_name: List[str])
     for collection_name in collections_name:
         if not database.hasCollection(collection_name.__tablename__):
             database.createCollection(name=collection_name.__tablename__)
-            logging.info(f"Create collection: {collection_name.__tablename__}")
+            logger.info(f"Create collection: {collection_name.__tablename__}")

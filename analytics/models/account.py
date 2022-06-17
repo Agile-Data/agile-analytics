@@ -30,12 +30,10 @@ def encode_password(password: str) -> str:
 
 
 def initialize_root():
-    Account(
-        name="root",
-        login="root",
-        password=ROOT_PASSWORD,
-        role="root",
-        email="abc",
-        created_at=datetime.now(),
-        updated_at=datetime.now()
-    ).save()
+    if Account.find_first({"name": "root"}) is None:
+        Account(
+            name="root",
+            login="root",
+            password=ROOT_PASSWORD,
+            role="root"
+        ).save()
