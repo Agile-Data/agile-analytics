@@ -1,9 +1,11 @@
 import logging
 import os
 import sys
+import time
 from typing import List
 
 from pyArango.connection import Connection
+from requests.exceptions import ConnectionError
 from pyArango.database import Database
 
 from .account import Account
@@ -28,17 +30,23 @@ logger = logging.getLogger(sys.modules[__name__].__name__)
 
 # noinspection SqlNoDataSourceInspection
 def initialize_database():
-    connection = Connection(arangoURL=DATABASE_URL, username=DATABASE_USERNAME, password=DATABASE_PASSWORD)
-    database_version = connection.getVersion()
-    logger.info(f"ArangoDB version: {database_version}")
+    try:
+        connection = Connection(arangoURL=DATABASE_URL, username=DATABASE_USERNAME, password=DATABASE_PASSWORD)
+        database_version = connection.getVersion()
+        logger.info(f"ArangoDB version: {database_version}")
 
-    if not connection.hasDatabase(DATABASE_NAME):
-        connection.createDatabase(DATABASE_NAME)
-        logger.info(f"Create database {DATABASE_NAME} in ArangoDB")
+        if not connection.hasDatabase(DATABASE_NAME):
+            connection.createDatabase(DATABASE_NAME)
+            logger.info(f"Create database {DATABASE_NAME} in ArangoDB")
 
-    _initialize_collections(connection, COLLECTIONS_NAME)
+        _initialize_collections(connection, COLLECTIONS_NAME)
 
-    connection.disconnectSession()
+        connection.disconnectSession()
+    except Exception as e:
+        if isinstance(e, ConnectionError):
+            logger.error(e)
+            time.sleep(5)
+            initialize_database()
 
 
 class create_connection:

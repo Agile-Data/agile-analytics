@@ -21,10 +21,11 @@ class StaticFileAccessLogFilter(logging.Filter):
 logging.getLogger("uvicorn.access").addFilter(StaticFileAccessLogFilter())
 logging.basicConfig(filename='logging.conf')
 
-app = FastAPI()
-
 initialize_database()
 initialize_root()
+
+app = FastAPI()
+
 initialize_static_file_route(app)
 initialize_gzip(app)
 initialize_controllers(app)

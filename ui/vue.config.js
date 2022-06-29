@@ -30,5 +30,6 @@ module.exports = defineConfig({
             }
         }
     },
+    parallel: 8,
     transpileDependencies: true
 })

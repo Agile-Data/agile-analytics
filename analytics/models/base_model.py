@@ -1,5 +1,5 @@
 from datetime import datetime
-from typing import Dict
+from typing import Dict, Any, List
 
 from pydantic import BaseModel
 
@@ -31,11 +31,15 @@ class ArrangoDBModel(BaseModel):
                 .createDocument(initDict=init_dict).save()
 
     @classmethod
-    def find_by_key(cls, key: int):
+    def update(cls, key, updated_attrs: Dict[str, Any]):
+        pass
+
+    @classmethod
+    def find_by_key(cls, key: int) -> 'ArrangoDBModel':
         return cls.find_first({"_key": key})
 
     @classmethod
-    def find_first(cls, predicate: Dict):
+    def find_first(cls, predicate: Dict) -> 'ArrangoDBModel':
         collection_name = getattr(cls, TABLE_NAME)
         with models.create_connection() as connection:
             doc = connection[models.DATABASE_NAME][collection_name].fetchFirstExample(predicate)
@@ -45,7 +49,7 @@ class ArrangoDBModel(BaseModel):
                 return cls.parse_obj(doc[0].getStore())
 
     @classmethod
-    def find_all(cls, predicate: Dict):
+    def find_all(cls, predicate: Dict) -> List['ArrangoDBModel']:
         collection_name = getattr(cls, TABLE_NAME)
         with models.create_connection() as connection:
             return [cls.parse_obj(d.getStore()) for d in connection[models.DATABASE_NAME][collection_name].fetchExample(predicate)]
