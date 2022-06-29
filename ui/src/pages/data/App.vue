@@ -26,7 +26,6 @@
 </template>
 
 <script>
-import "@/index.css"
 import "@/session"
 
 export default {
