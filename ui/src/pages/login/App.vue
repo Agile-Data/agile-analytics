@@ -32,6 +32,7 @@
 
 <script>
 import "@/session"
+import "@tabler/core/src/scss/tabler.scss"
 import BorderTopWidePage from "@/components/BorderTopWidePage";
 
 export default {
