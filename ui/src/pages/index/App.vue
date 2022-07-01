@@ -7,32 +7,23 @@
         </button>
         <h1 class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
           <a href=".">
-            <img src="@/assets/logo_w.png" width="110" alt="Tabler" class="navbar-brand-image">
+            <img src="@/assets/logo_w.png" width="110" class="navbar-brand-image">
           </a>
         </h1>
         <div class="navbar-nav flex-row order-md-last">
-          <div class="nav-item dropdown">
-            <a href="#" class="nav-link d-flex lh-1 text-reset p-0" data-bs-toggle="dropdown"
-               aria-label="Open user menu">
+          <div class="nav-item">
+            <a href="#" class="nav-link d-flex lh-1 text-reset p-0">
               <div class="col-auto">
-                <span class="avatar rounded">王</span>
+                <span class="avatar avatar-sm avatar-rounded">王</span>
               </div>
               <div class="d-none d-xl-block ps-2">
                 <div>王小二</div>
                 <div class="mt-1 small text-muted">数据分析师</div>
               </div>
             </a>
-            <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-              <a href="#" class="dropdown-item">Set status</a>
-              <a href="#" class="dropdown-item">Profile & account</a>
-              <a href="#" class="dropdown-item">Feedback</a>
-              <div class="dropdown-divider"></div>
-              <a href="#" class="dropdown-item">Settings</a>
-              <a href="#" class="dropdown-item">Logout</a>
-            </div>
           </div>
         </div>
-        <main-menu/>
+        <menu-bar/>
       </div>
     </header>
     <div class="page-wrapper">
@@ -1463,11 +1454,11 @@
 <script>
 import "@tabler/core/src/scss/tabler.scss"
 import "@/session"
-import MainMenu from "@/components/MainMenu";
+import MenuBar from "@/components/MenuBar";
 
 export default {
   components: {
-    MainMenu
+    MenuBar
   }
 }
 </script>
