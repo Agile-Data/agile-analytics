@@ -1,5 +1,5 @@
 <template>
-  <border-top-wide-page>
+  <div class="page page-center border-top-wide border-primary d-flex flex-column">
       <div class="container-tight py-4">
         <div class="text-center mb-2">
           <a href="." class="navbar-brand navbar-brand-autodark">
@@ -8,10 +8,10 @@
         </div>
         <form class="card card-md" autocomplete="off">
           <div class="card-body">
-            <h2 class="card-title text-center mb-4">登 录</h2>
+            <h1 class="card-title text-center mb-4">登 录</h1>
             <div class="mb-3">
               <label class="form-label">帐号：</label>
-              <input type="input" class="form-control" autocomplete="off">
+              <input type="text" class="form-control" autocomplete="off">
             </div>
             <div class="mb-2">
               <label class="form-label">
@@ -27,17 +27,13 @@
           </div>
         </form>
       </div>
-    </border-top-wide-page>
+    </div>
 </template>
 
 <script>
 import "@/session"
 import "@tabler/core/src/scss/tabler.scss"
-import BorderTopWidePage from "@/components/BorderTopWidePage";
 
 export default {
-  components: {
-    BorderTopWidePage
-  }
 }
 </script>

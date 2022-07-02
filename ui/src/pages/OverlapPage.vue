@@ -6,7 +6,7 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <h1 class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
-          <a href=".">
+          <a href="/">
             <img src="@/assets/logo_w.png" width="110" class="navbar-brand-image">
           </a>
         </h1>
@@ -26,28 +26,51 @@
         <div class="collapse navbar-collapse" id="navbar-menu">
           <div class="d-flex flex-column flex-md-row flex-fill align-items-stretch align-items-md-center">
             <ul class="navbar-nav">
-              <Menu icon="home" url="/index.html" name="首页"/>
-              <Menu icon="dashboard" url="/dashboard.html" name="数据面板"/>
-              <Menu icon="search" url="/search.html" name="搜索"/>
-              <Menu icon="database" url="/datasource.html" name="数据源"/>
-              <Menu icon="settings" url="/settings.html" name="系统"/>
+              <nav-menu icon="home" url="/index.html" name="首页"/>
+              <nav-menu icon="dashboard" url="/dashboard.html" name="数据面板"/>
+              <nav-menu icon="search" url="/search.html" name="搜索"/>
+              <nav-menu icon="database" url="/datasource.html" name="数据源"/>
+              <nav-menu icon="settings" url="/settings.html" name="系统"/>
             </ul>
           </div>
         </div>
       </div>
     </header>
     <div class="page-wrapper">
-      <slot/>
+      <div class="container-xl">
+        <div class="page-header d-print-none text-white">
+          <div class="row g-2 align-items-center">
+            <div class="col">
+              <h2 class="page-title">
+                {{ title }}
+              </h2>
+            </div>
+            <div class="col-12 col-md-auto ms-auto d-print-none">
+              <slot name="page-actions"></slot>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="page-body">
+        <slot name="page-body"></slot>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import NavMenu from "@/components/NavMenu.vue";
+
 export default {
-  name: "OverlapPage"
+  name: "OverlapPage",
+  props: {
+    title: {
+      type: String,
+      required: true
+    }
+  },
+  components: {
+    "nav-menu": NavMenu
+  }
 }
 </script>
-
-<style scoped>
-
-</style>

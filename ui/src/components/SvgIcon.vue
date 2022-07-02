@@ -3,8 +3,10 @@
     <use :href="'#icon-' + name"></use>
   </svg>
 </template>
-<script>
-export default {
+<script lang="ts">
+import {defineComponent} from "vue";
+
+export default defineComponent({
   name: 'SvgIcon',
   props: {
     name: {
@@ -18,10 +20,11 @@ export default {
   },
   setup() {
     const req = require.context('@/assets/svg', true, /\.svg$/)
-    const requireAll = (requireContext) => {
+    // eslint-disable-next-line no-undef
+    const requireAll = (requireContext: __WebpackModuleApi.RequireContext) => {
       return requireContext.keys().map(requireContext);
     }
     requireAll(req)
   }
-}
+})
 </script>

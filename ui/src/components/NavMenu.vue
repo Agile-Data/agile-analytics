@@ -9,12 +9,12 @@
   </li>
 </template>
 
-<script>
-import SvgIcon from '@/components/SvgIcon'
+<script lang="ts">
+import {defineComponent} from "vue";
+import SvgIcon from '@/components/SvgIcon.vue'
 
-export default {
-  // eslint-disable-next-line
-  name: "Menu",
+export default defineComponent({
+  name: "NavMenu",
   props: {
     name: {
       type: String,
@@ -37,5 +37,5 @@ export default {
       return location.pathname.endsWith(this.url)
     }
   }
-}
+})
 </script>
