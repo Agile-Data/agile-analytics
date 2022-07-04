@@ -1,13 +1,13 @@
 <template>
   <div class="page">
-    <header class="navbar navbar-expand-md navbar-dark navbar-overlap d-print-none">
+    <header class="navbar navbar-expand-md navbar-dark d-print-none">
       <div class="container-xl">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-menu">
           <span class="navbar-toggler-icon"></span>
         </button>
         <h1 class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
           <a href="/">
-            <img src="@/assets/logo_w.png" width="110" class="navbar-brand-image">
+            <img src="@/assets/logo_w.png" class="navbar-brand-image" style="height: 1.5em;">
           </a>
         </h1>
         <div class="navbar-nav flex-row order-md-last">
@@ -37,20 +37,6 @@
       </div>
     </header>
     <div class="page-wrapper">
-      <div class="container-xl">
-        <div class="page-header d-print-none text-white">
-          <div class="row g-2 align-items-center">
-            <div class="col">
-              <h2 class="page-title">
-                {{ title }}
-              </h2>
-            </div>
-            <div class="col-12 col-md-auto ms-auto d-print-none">
-              <slot name="page-actions"></slot>
-            </div>
-          </div>
-        </div>
-      </div>
       <div class="page-body">
         <slot name="page-body"></slot>
       </div>
@@ -70,7 +56,7 @@ export default {
     }
   },
   components: {
-    "nav-menu": NavMenu
+    NavMenu
   }
 }
 </script>
