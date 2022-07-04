@@ -702,7 +702,6 @@ export default {
   &.splitpanes--vertical > .splitpanes__splitter,
   .splitpanes--vertical > .splitpanes__splitter {
     width: 7px;
-    border-left: 1px solid #eee;
     margin-left: -1px;
 
     &:before, &:after {

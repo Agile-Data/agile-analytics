@@ -7,11 +7,17 @@
             <left-pane/>
           </pane>
           <pane>
-            <div class="card" style="flex: 1;">
-              <div class="card-body">
-                <div class="card-title">Basic info</div>
-              </div>
-            </div>
+            <tabs>
+              <tab name="显示字段">
+                First tab content
+              </tab>
+              <tab name="数据表">
+                Second tab content
+              </tab>
+              <tab name="数据表关系">
+                Third tab content
+              </tab>
+            </tabs>
           </pane>
         </split-pane>
       </div>
@@ -24,12 +30,13 @@ import "./main.scss"
 import "@/session"
 import {SplitPane, Pane} from "@/components/split-pane"
 import OverlapPage from "@/pages/OverlapPage";
-import LeftPane from "./LeftPane"
+import LeftPane from "./left-pane"
+import {Tabs, Tab} from 'vue3-tabs-component';
 
 
 export default {
   components: {
-    OverlapPage, SplitPane, Pane, LeftPane
+    OverlapPage, SplitPane, Pane, LeftPane, Tabs, Tab
   }
 }
 </script>

@@ -16,7 +16,8 @@
     "vue": "^3.2.13",
     "vue-class-component": "^8.0.0-0",
     "vue3-apexcharts": "^1.4.1",
-    "@tabler/core": "^1.0.0-beta9"
+    "@tabler/core": "^1.0.0-beta9",
+    "vue3-tabs-component": "^1.0.8"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",
