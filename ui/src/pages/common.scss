@@ -8,10 +8,45 @@
 @import "~@tabler/core/src/scss/ui/icons";
 @import "~@tabler/core/src/scss/ui/avatars";
 
-.active.nav-item {
-  border-bottom: 2px solid $white;
-}
+//noinspection CssInvalidFunction
+.navbar-expand {
+  @each $breakpoint in map-keys($grid-breakpoints) {
+    $next: breakpoint-next($breakpoint, $grid-breakpoints);
+    $infix: breakpoint-infix($next, $grid-breakpoints);
 
-.navbar {
-  padding-bottom: 0 !important;
+    &#{$infix} {
+      @include media-breakpoint-down(breakpoint-next($breakpoint)) {
+        @include navbar-vertical-nav;
+      }
+
+      @include media-breakpoint-up($next) {
+        .navbar-collapse {
+          width: auto;
+          flex: 1 1 auto;
+        }
+
+        &.navbar-dark,
+        .navbar-dark {
+
+          .nav-item.active {
+            position: relative;
+
+            &:after {
+              content: '';
+              position: absolute;
+              left: 0;
+              right: 0;
+              bottom: -.2rem;
+              border: 0 solid $white;
+              border-bottom-width: 2px;
+            }
+
+            .nav-link {
+              background-color: rgba($black, .0);
+            }
+          }
+        }
+      }
+    }
+  }
 }
