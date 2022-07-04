@@ -32,7 +32,7 @@
 
 <script>
 import "@/session"
-import "@tabler/core/src/scss/tabler.scss"
+import "../common.scss"
 
 export default {
 }

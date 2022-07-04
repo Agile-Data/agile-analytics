@@ -1,0 +1,17 @@
+@import "~@tabler/core/src/scss/config";
+@import "~@tabler/core/src/scss/bootstrap-components";
+@import "~@tabler/core/src/scss/fonts/webfonts";
+@import "~@tabler/core/src/scss/layout/core";
+@import "~@tabler/core/src/scss/layout/navbar";
+@import "~@tabler/core/src/scss/layout/page";
+@import "~@tabler/core/src/scss/ui/cards";
+@import "~@tabler/core/src/scss/ui/icons";
+@import "~@tabler/core/src/scss/ui/avatars";
+
+.active.nav-item {
+  border-bottom: 2px solid $white;
+}
+
+.navbar {
+  padding-bottom: 0 !important;
+}

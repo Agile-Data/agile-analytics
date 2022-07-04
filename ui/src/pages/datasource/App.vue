@@ -22,6 +22,7 @@
 </template>
 
 <script>
+import "../common.scss"
 import "./main.scss"
 import "@/session"
 import {SplitPanel, Panel} from "@/components/splitpanel"
