@@ -615,7 +615,7 @@ export default {
 .splitpanes {
   display: flex;
   width: 100%;
-  height: 100%;
+  flex: 1;
 
   &--vertical {
     flex-direction: row;
@@ -665,11 +665,12 @@ export default {
 
 .splitpanes.default-theme {
   .splitpanes__pane {
-    background-color: #f2f2f2;
+    background-color: transparent;
+    display: flex;
   }
 
   .splitpanes__splitter {
-    background-color: #fff;
+    background-color: transparent;
     box-sizing: border-box;
     position: relative;
     flex-shrink: 0;

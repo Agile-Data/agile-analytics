@@ -1,5 +1,6 @@
 @import "~@tabler/core/src/scss/config";
 @import "~@tabler/core/src/scss/bootstrap-components";
+@import "~@tabler/core/src/scss/mixins";
 @import "~@tabler/core/src/scss/fonts/webfonts";
 @import "~@tabler/core/src/scss/layout/core";
 @import "~@tabler/core/src/scss/layout/navbar";
@@ -8,7 +9,7 @@
 @import "~@tabler/core/src/scss/ui/icons";
 @import "~@tabler/core/src/scss/ui/avatars";
 
-//noinspection CssInvalidFunction
+//noinspection ALL
 .navbar-expand {
   @each $breakpoint in map-keys($grid-breakpoints) {
     $next: breakpoint-next($breakpoint, $grid-breakpoints);
@@ -48,5 +49,15 @@
         }
       }
     }
+  }
+}
+
+.list-group {
+  a {
+    text-decoration: none;
+  }
+
+  .list-group-item {
+    cursor: pointer;
   }
 }

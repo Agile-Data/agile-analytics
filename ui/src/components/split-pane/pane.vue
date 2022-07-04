@@ -7,7 +7,7 @@
 <script>
 /* eslint-disable vue/multi-word-component-names */
 export default {
-  name: 'Panel',
+  name: 'Pane',
   inject: ['requestUpdate', 'onPaneAdd', 'onPaneRemove', 'onPaneClick'],
 
   props: {

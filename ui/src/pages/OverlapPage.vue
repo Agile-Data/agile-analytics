@@ -26,7 +26,7 @@
               <nav-menu icon="home" url="/index.html" name="首页"/>
               <nav-menu icon="dashboard" url="/dashboard.html" name="数据面板"/>
               <nav-menu icon="search" url="/search.html" name="搜索"/>
-              <nav-menu icon="database" url="/datasource.html" name="数据源"/>
+              <nav-menu icon="database" url="/data-source.html" name="数据源"/>
               <nav-menu icon="settings" url="/settings.html" name="系统"/>
             </ul>
           </div>
@@ -46,12 +46,7 @@ import NavMenu from "@/components/NavMenu.vue";
 
 export default {
   name: "OverlapPage",
-  props: {
-    title: {
-      type: String,
-      required: true
-    }
-  },
+  props: {},
   components: {
     NavMenu
   }
