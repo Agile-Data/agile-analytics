@@ -1,6 +1,6 @@
 <template>
-  <overlap-page>
-    <template v-slot:page-body>
+  <page-body>
+    <template>
       <div class="container-xl full-page">
         <split-pane class="default-theme">
           <pane size="25" min-size="25">
@@ -58,21 +58,21 @@
         </split-pane>
       </div>
     </template>
-  </overlap-page>
+  </page-body>
 </template>
 
 <script>
 import "./main.scss"
 import "@/session"
 import {SplitPane, Pane} from "@/components/split-pane"
-import OverlapPage from "@/pages/OverlapPage";
+import PageBody from "@/pages/PageBody";
 import LeftPane from "./left-pane"
 // import {Tabs, Tab} from 'vue3-tabs-component';
 
 
 export default {
   components: {
-    OverlapPage, SplitPane, Pane, LeftPane
+    PageBody, SplitPane, Pane, LeftPane
   }
 }
 </script>

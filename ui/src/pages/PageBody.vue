@@ -26,7 +26,6 @@
               <nav-menu icon="home" url="/index.html" name="首页"/>
               <nav-menu icon="search" url="/search.html" name="搜索"/>
               <nav-menu icon="list-search" url="/views.html" name="视图"/>
-              <nav-menu icon="database" url="/connections.html" name="数据源"/>
               <nav-menu icon="settings" url="/settings.html" name="系统"/>
             </ul>
           </div>
@@ -35,7 +34,7 @@
     </header>
     <div class="page-wrapper">
       <div class="page-body">
-        <slot name="page-body"></slot>
+        <slot></slot>
       </div>
     </div>
   </div>
