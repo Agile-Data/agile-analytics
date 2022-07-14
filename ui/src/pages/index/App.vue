@@ -1,5 +1,5 @@
 <template>
-  <page-body title="首页">
+  <page title="首页">
     <div class="container-xl">
       <div class="row row-deck row-cards">
         <div class="col-sm-6 col-lg-3">
@@ -146,18 +146,18 @@
         </div>
       </div>
     </div>
-  </page-body>
+  </page>
 </template>
 
 <script>
 import "../common.scss"
 import "./main.scss"
 import "@/session"
-import PageBody from "@/pages/PageBody";
+import Page from "@/pages/Page";
 
 export default {
   components: {
-    PageBody
+    Page
   }
 }
 </script>

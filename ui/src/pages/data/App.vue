@@ -66,13 +66,12 @@ import "./main.scss"
 import "@/session"
 import {SplitPane, Pane} from "@/components/split-pane"
 import Page from "@/pages/Page";
-import LeftPane from "./left-pane"
 // import {Tabs, Tab} from 'vue3-tabs-component';
 
 
 export default {
   components: {
-    Page, SplitPane, Pane, LeftPane
+    Page, SplitPane, Pane
   }
 }
 </script>

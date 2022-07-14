@@ -1,5 +1,5 @@
 <template>
-  <page-body>
+  <page>
     <template>
       <div class="container-xl">
         <div class="row row-deck row-cards">
@@ -148,18 +148,18 @@
         </div>
       </div>
     </template>
-  </page-body>
+  </page>
 </template>
 
 <script>
 import "../common.scss"
 import "./main.scss"
 import "@/session"
-import PageBody from "@/pages/PageBody";
+import Page from "@/pages/Page";
 
 export default {
   components: {
-    PageBody
+    Page
   }
 }
 </script>
